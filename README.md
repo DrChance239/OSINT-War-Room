@@ -74,7 +74,7 @@ I vibecoded 90% of this project using Gemini extension on Vs Code, Claude, and G
 
 ### 🔋 How to install & run
 
-0) Requirements: Python 3.11, [AISStream.io](https://aisstream.io/) API key (free), and Acled email + password.
+0) Requirements: Python 3.11, [AISStream.io](https://aisstream.io/) API key (free).
 
 1) Clone the repo:
 ```bash
@@ -97,7 +97,7 @@ uvicorn backend.main:app --reload
 
 ### ⚙️ Configuration
 
-The Api is added in `frontend/js/map.js`, in the `startAISWebSocket` function. The Acled credentials in `backend/api/radar.py` on line 175, before the `get_acled_token()` function.
+The Api is added in `frontend/js/map.js`, in the `startAISWebSocket` function.
 
 Telegram channels are configurable at runtime via the News settings modal in the UI, or by editing `backend/database.json` directly:
 
