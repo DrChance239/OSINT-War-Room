@@ -93,6 +93,16 @@ uvicorn backend.main:app --reload
 ```
 > **Note:** On first load, the GDELT conflict feed and OSM military bases may take 10–30 seconds to appear, this is normal and happens because GDELT's live feed requires downloading and parsing a large ZIP. Results are cached server-side for 15 minutes (GDELT) and 6 hours (military bases) after the first successful fetch.
 
+### Windows desktop app
+
+Build a native Windows app with WebView2:
+
+```powershell
+.\build-windows.ps1
+```
+
+Open `dist\Chanos War Room\Chanos War Room.exe`. The desktop app stores its local alert cache and settings in `%LOCALAPPDATA%\ChanosWarRoom`.
+
 ---
 
 ### ⚙️ Configuration

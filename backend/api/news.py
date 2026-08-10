@@ -2,15 +2,14 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 import asyncio
 import json
-import os
 from datetime import datetime, timezone, timedelta
+from backend.storage import DATABASE_FILE
 
 # This whole file is basically useless, i tried several free
 #  twitter scrapers with limited success, the only good ones
 #  are paid or require an account which could result in ban.
 
 router = APIRouter()
-DB_FILE = "backend/database.json"
 DEFAULT_ACCOUNTS = ["FaytuksNetwork", "pizzintwatch", "MEPPonPM",
                      "Osinttechnical", "sentdefender", "Conflict_Radar", 
                      "AJEnglish", "warsurv", "WarMonitor3", "WarMonitors", 
@@ -22,10 +21,10 @@ class SettingsUpdate(BaseModel):
 
 def load_db():
     default_db = {"alerts": [], "news": [], "settings": {}}
-    if not os.path.exists(DB_FILE):
+    if not DATABASE_FILE.exists():
         return default_db
     try:
-        with open(DB_FILE, "r") as f:
+        with DATABASE_FILE.open("r", encoding="utf-8") as f:
             return json.load(f)
     except:
         return default_db
