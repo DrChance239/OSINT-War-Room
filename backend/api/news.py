@@ -1,6 +1,5 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from tweety import Twitter # type: ignore
 import asyncio
 import json
 import os
@@ -43,4 +42,3 @@ async def get_unified_feed():
     combined = db.get("alerts", []) + db.get("news", [])
     combined.sort(key=lambda x: x.get("timestamp", ""), reverse=True)
     return {"status": "success", "data": combined[:200]}
-
