@@ -37,7 +37,7 @@ async def startup_event():
 
 @app.get("/api/status")
 async def get_status():
-    return {"status": "War Monitor Backend Active"}
+    return {"status": "Chanos War Room Backend Active"}
 
 # Mount Frontend Static Files (Must be last to avoid overriding API routes)
 app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
